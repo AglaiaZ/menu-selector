@@ -2,9 +2,9 @@
  * @author zhangboxuan@thinkerx.com
  */
 angular
-    .module('athena.menuSelector', [])
+    .module('aglaia')
     .component('menuSelector',{
-        templateUrl: 'menu-selector.view.html',
+        templateUrl: '../views/menu-selector.view.html',
         controller: 'MenuSelector',
         controllerAs: 'menu',
         bindings: {

@@ -23,7 +23,7 @@ var paths = {
     demo: 'demo',
     dist: 'dist',
     js: [
-        'src/filters/*.js',
+        'filters/*.js',
         'src/*.js'
     ],
     css: [

@@ -3,7 +3,10 @@
  * @author zhangboxuan@thinkerx.com
  */
 angular
-    .module('athena.menuSelector')
+    .module('aglaia', []);
+
+angular
+    .module('aglaia')
     .filter('menuSelector', menuSelector);
 
 menuSelector.$inject = [];

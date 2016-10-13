@@ -2,7 +2,7 @@
  * @author zhangboxuan@thinkerx.com
  */
 angular
-    .module('athena.menuSelector')
+    .module('aglaia')
     .controller('MenuSelector', MenuSelector);
 
 MenuSelector.$inject = ['$scope', '$timeout'];
@@ -16,12 +16,6 @@ function MenuSelector($scope, $timeout) {
     vm.selectMenu = selectMenu;
     vm.showSelectedMenu = showSelectedMenu;
     vm.hoverSelectMenu = hoverSelectMenu;
-
-    init();
-
-    function init() {
-
-    }
 
     function selectMenu(menuList1, menuList2, menuList3) {
         if(menuList3 && menuList2) {
