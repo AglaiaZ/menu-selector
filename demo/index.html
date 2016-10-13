@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="aglaia">
+<head>
+    <meta charset="UTF-8">
+    <title>多级菜单联动</title>
+    <!-- Bootstrap -->
+    <link href="http://cdn.cshen.cn/INSPINIA-v2.6.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="MainCtrl as main">
+    <div class="row">
+        <div class="col-lg-3">
+            <menu-selector placeholder="请点击选择分类"
+                           menu-list="main.menuSelectorItemList"></menu-selector>
+        </div>
+    </div>
+
+    <script src="menu-selector.mock.js"></script>
+    <script>
+        angular
+            .module('aglaia')
+            .controller('MainCtrl', MainCtrl);
+
+        function MainCtrl() {
+            var vm = this;
+
+            vm.menuSelectorItemList = menuSelectorItemList;
+        }
+    </script>
+</body>
+</html>    

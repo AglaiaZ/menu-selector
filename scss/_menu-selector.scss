@@ -1,0 +1,54 @@
+$menu-ul-width: 150;
+
+@function widthFn($level) {
+    @return ($level * $menu-ul-width) + px;
+}
+
+.menu-selector {
+    position: relative;
+    z-index: 4;
+
+    input[readonly] {
+        background: #fff;
+    }
+}
+
+.menu-selector .dropdown-1{
+    width: widthFn(1);
+}
+
+.menu-selector .dropdown-2{
+    width: widthFn(2);
+}
+
+.menu-selector .dropdown-3{
+    width: widthFn(3);
+}
+
+.menu-selector .dropdown {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    .fa {
+        float: right;
+        margin-top: 6px;
+    }
+    ul {
+        padding: 5px 0;
+        float: left;
+        max-height: 260px;
+        overflow-x: hidden;
+        width: $menu-ul-width+px;
+        li {
+            padding: 0 10px;
+            line-height: 25px;
+            cursor: pointer;
+            &:hover {
+                background: rgba(255, 193, 37, 0.5);
+            }
+        }
+        li.active {
+            background: rgba(255, 193, 37, 0.5);
+        }
+    }
+}

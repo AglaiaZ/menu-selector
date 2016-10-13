@@ -1,0 +1,21 @@
+{
+  "name": "menu-selector",
+  "description": "menu-selector",
+  "main": "index.js",
+  "authors": [
+    "\u001b[A\u001b[C mAglaia"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "menu"
+  ],
+  "homepage": "https://github.com/AglaiaZ/menu-selector",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

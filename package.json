@@ -1,0 +1,35 @@
+{
+  "name": "menu-selector",
+  "version": "1.0.0",
+  "description": "menu-selector",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AglaiaZ/menu-selector.git"
+  },
+  "author": "\u001b[A\u001b[C mAglaia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AglaiaZ/menu-selector/issues"
+  },
+  "homepage": "https://github.com/AglaiaZ/menu-selector#readme",
+  "dependencies": {
+    "browser-sync": "^2.17.3",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.3"
+  },
+  "keywords": [
+    "menu"
+  ]
+}

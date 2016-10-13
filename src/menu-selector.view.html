@@ -1,0 +1,43 @@
+<div class="form-group menu-selector" ng-mouseleave="menu.isShow=false">
+    <div class="input-group">
+        <input readonly type="text" class="input-group form-control" 
+                                    placeholder="{{menu.placeholder}}"
+                                    value="{{menu.selectedMenu | menuSelector}}"
+                                    ng-click="menu.showSelectedMenu()">
+        <div class="input-group-btn">
+            <button class="btn btn-white" type="button" ng-click="menu.showSelectedMenu()">
+                <span class="caret"></span>
+            </button>
+        </div>
+        <div class="dropdown dropdown-3" ng-if="menu.isShow">
+            <ul class="panel panel-default level-1">
+                <li ng-repeat="item in menu.menuList" 
+                    ng-mouseenter="menu.hoverSelectMenu(item, $event); menu.menuList3Show=false" 
+                    ng-click="menu.selectMenu(menu.menuList1)"
+                    ng-class="{'active': menu.menuList1==item}">
+                    {{item.name}}
+                    <i class="fa fa-caret-right" ng-if="item.children.length!=0"></i>
+                </li>              
+            </ul>
+            <ul class="panel panel-default level-2" ng-if="menu.menuList1.children && menu.menuList1.children.length!=0">
+                <li ng-repeat="child in menu.menuList1.children" 
+                    ng-mouseenter="menu.hoverSelectMenu(child, $event); menu.menuList3Show=true;" 
+                    ng-click="menu.selectMenu(menu.menuList1, menu.menuList2)"
+                    ng-class="{'active': menu.menuList2==child}">
+                    {{child.name}}
+                    <i class="fa fa-caret-right" ng-if="child.children.length!=0"></i>
+                </li>
+            </ul>
+            <ul class="panel panel-default level-3" ng-if="menu.menuList1.children.length!=0 && menu.menuList2.children && menu.menuList2.children.length!=0 && menu.menuList3Show">
+                <li ng-repeat="grandchild in menu.menuList2.children" 
+                    ng-mouseenter="menu.hoverSelectMenu(grandchild, $event)" 
+                    ng-click="menu.selectMenu(menu.menuList1, menu.menuList2, menu.menuList3)"
+                    ng-class="{'active': menu.menuList3==grandchild}">
+                    {{grandchild.name}}
+                    <i class="fa fa-caret-right" ng-if="grandchild.children.length!=0"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
