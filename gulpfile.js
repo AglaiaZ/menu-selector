@@ -13,24 +13,24 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var cleanCss = require('gulp-clean-css');
-var flatten = require('gulp-flatten');
 var browserSync = require('browser-sync').create();
 
 var projectName = 'menu-selector';
 
 var paths = {
-    src: 'src',
     demo: 'demo',
     dist: 'dist',
     js: [
         'filters/*.js',
-        'src/*.js'
+        'src/*.js',
+        'demo/*.js'
     ],
     css: [
         'scss/*.scss'
     ],
     html: [
-        'src/*.html'
+        'src/*.html',
+        'demo/*.html'
     ]
 };
 
@@ -40,35 +40,34 @@ gulp.task('clean', function () {
 
 gulp.task('lint', function() {
     return gulp.src(paths.js)
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+               .pipe(jshint())
+               .pipe(jshint.reporter('default'));
 });
 
 // js task
 gulp.task('build:js', ['lint'], function() {
     return gulp.src(paths.js)
-        .pipe(concat(projectName + '.js'))
-        .pipe(gulp.dest(paths.dist + '/js/'))
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.dist + '/js/'));
+               .pipe(concat(projectName + '.js'))
+               .pipe(gulp.dest(paths.dist + '/js/'))
+               .pipe(uglify())
+               .pipe(rename({suffix: '.min'}))
+               .pipe(gulp.dest(paths.dist + '/js/'));
 });
 
 // css task
 gulp.task('build:css', function() {
     return gulp.src(paths.css)
-        .pipe(concat(projectName + '.css'))
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(paths.dist + '/css'))
-        .pipe(cleanCss())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.dist + '/css'));
+               .pipe(concat(projectName + '.css'))
+               .pipe(sass().on('error', sass.logError))
+               .pipe(gulp.dest(paths.dist + '/css'))
+               .pipe(cleanCss())
+               .pipe(rename({suffix: '.min'}))
+               .pipe(gulp.dest(paths.dist + '/css'));
 });
 
 gulp.task('build:html', function() {
     return gulp.src(paths.html)
-        .pipe(flatten())
-        .pipe(gulp.dest(paths.dist + '/views'));
+               .pipe(gulp.dest(paths.dist + '/views'));
 });
 
 gulp.task('build', [
@@ -78,14 +77,9 @@ gulp.task('build', [
 ]);
 
 gulp.task('watch', ['build'], function() {
-    gulp.watch(paths.libs + '/**/*', ['build:vendor']);
-    gulp.watch([
-        paths.app + '/**/*.js'
-    ], ['build:js']);
-    gulp.watch([
-        paths.assets + '/**/*.scss'
-    ], ['build:css']);
-    gulp.watch(paths.app + '/**/*.html', ['build:html']);
+    gulp.watch(paths.js, ['build:js']);
+    gulp.watch(paths.css, ['build:css']);
+    gulp.watch(paths.html, ['build:html']);
 });
 
 gulp.task('debug', ['watch'], function () {
