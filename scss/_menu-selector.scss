@@ -33,9 +33,11 @@ $menu-ul-width: 150;
         float: right;
         margin-top: 6px;
     }
+    .level {
+        float: left;
+    }
     ul {
         padding: 5px 0;
-        float: left;
         max-height: 260px;
         overflow-x: hidden;
         width: $menu-ul-width+px;
@@ -44,11 +46,11 @@ $menu-ul-width: 150;
             line-height: 25px;
             cursor: pointer;
             &:hover {
-                background: rgba(255, 193, 37, 0.5);
+                background: #eee;
             }
         }
         li.active {
-            background: rgba(255, 193, 37, 0.5);
+            background: #eee;
         }
     }
 }

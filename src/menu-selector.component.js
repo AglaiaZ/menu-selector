@@ -9,6 +9,8 @@ angular
         controllerAs: 'menu',
         bindings: {
             menuList: '<',
-            placeholder: '@'
+            placeholder: '@',
+            level: '<',
+            selectedMenu: '<'
         }
     });
