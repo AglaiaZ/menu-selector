@@ -17,7 +17,7 @@
                         ng-click="menu.selectMenu(menu.menuList1)"
                         ng-class="{'active': menu.menuList1==item}">
                         {{item.name}}
-                        <i class="fa fa-caret-right" ng-if="item.children.length!=0 && (menu.level==2||menu.level==3)">></i>
+                        <i class="glyphicon glyphicon-chevron-right btn-sm" ng-if="item.children.length!=0 && (menu.level==2||menu.level==3)"></i>
                     </li>              
                 </ul>
             </div>
@@ -28,7 +28,7 @@
                         ng-click="menu.selectMenu(menu.menuList1, menu.menuList2)"
                         ng-class="{'active': menu.menuList2==child}">
                         {{child.name}}
-                        <i class="fa fa-caret-right" ng-if="child.children.length!=0 && menu.level==3">></i>
+                        <i class="glyphicon glyphicon-chevron-right btn-sm" ng-if="child.children.length!=0 && menu.level==3"></i>
                     </li>
                 </ul>    
             </div>
